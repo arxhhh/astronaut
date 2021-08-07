@@ -22,6 +22,7 @@ function preload(){
 
 function setup() {
   createCanvas(600,500);
+  edges=createEdgeSprites();
   astronauts=createSprite(300, 230);
  astronauts.scale=0.12;
  astronauts.addAnimation("sleep",sleepImg);
@@ -48,7 +49,7 @@ function draw() {
   text("RIGHT_ARROW = eating",40,445);
   text("LEFT_ARROW = drinking",40,460);
 
-
+  
 
   if (keyDown("UP_ARROW")){
     astronauts.addAnimation("brush",brushImg);
@@ -89,6 +90,6 @@ function draw() {
     astronauts.setVelocity(0,0);
   }
 
-
+  astronauts.bounceOff(edges);
   drawSprites();
 }
